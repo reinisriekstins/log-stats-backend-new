@@ -6,7 +6,9 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "body-parser": "~1.15.1",
+    "cheerio": "^0.22.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "ejs": "~2.4.1",
@@ -17,6 +19,8 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
     "nodemon": "^1.11.0"
   }
 }
