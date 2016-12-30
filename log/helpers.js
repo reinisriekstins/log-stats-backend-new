@@ -62,7 +62,9 @@ module.exports = (function () {
           }
           /// maybe embed the html derived data
           /// in the log json? or return array?
-          return { json: one.data, html: two }
+          one.data.info.map = two.map
+          one.data.info.timestamp = two.time
+          return one.data
         })
     }
   }
