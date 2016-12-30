@@ -25,7 +25,6 @@ router.get('/:logId', (req, res, next) => {
       htmlUrl = 'http://' + join('logs.tf/', logId),
       jsonUrl = 'http://' + join('logs.tf/json/', logId)
 
-    // axios(jsonUrl).then(console.log).catch(console.warn)
     const json$ = TakeNTimesWithDelay$({
       promise: () => axios(jsonUrl),
       validationFn: validateLogJson
@@ -38,14 +37,13 @@ router.get('/:logId', (req, res, next) => {
 
     // combined latest from html$ and json$
     const combined$ = Combined$(json$, html$)
-      .do(console.log)
       .subscribe(
         next => {
           //console.log(next)
           res.send(next).end()
         },
         err => {
-          console.log(err)
+          console.error(err)
           res.status(500).end()
         }
       )
